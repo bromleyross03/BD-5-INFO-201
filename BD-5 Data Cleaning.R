@@ -12,5 +12,5 @@ df <- merge(x = gdp_df, y = happiness_df,
             by.y = "Country",
             all.x = TRUE
 )
-
+hello
 new_df <- filter(df, Year >= 2020)
