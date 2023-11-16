@@ -35,3 +35,6 @@ df$"X2016" <- NULL
 df$"X2017" <- NULL
 df$"X2018" <- NULL
 df$"X2019" <- NULL
+
+columns_to_modify <- c("Column1", "Column2")
+#df[] <- lapply(df, function(x) as.numeric(gsub(",", ".", x)))
