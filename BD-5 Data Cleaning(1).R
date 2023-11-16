@@ -36,5 +36,8 @@ df$"X2017" <- NULL
 df$"X2018" <- NULL
 df$"X2019" <- NULL
 
-columns_to_modify <- c("Happiness.score", "Whisker.high", "Whisker.low", "Dystopia..1.83....residual", "Explained.by..GDP.per.capita", "Explained.by..Social.support", "Explained.by..Healthy.life.expectancy")
+columns_to_modify <- c("Happiness.score", "Whisker.high", "Whisker.low", "Dystopia..1.83....residual",
+                       "Explained.by..GDP.per.capita", "Explained.by..Social.support",
+                       "Explained.by..Healthy.life.expectancy", "Explained.by..Freedom.to.make.life.choices",
+                       "Explained.by..Generosity", "Explained.by..Perceptions.of.corruption")
 #df[] <- lapply(df, function(x) as.numeric(gsub(",", ".", x)))
