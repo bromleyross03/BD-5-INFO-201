@@ -13,7 +13,7 @@ df <- merge(x = gdp_df, y = happiness_df,
             all.x = TRUE
 )
 
-
+#clean out unwanted columns
 df$"X1999" <- NULL
 df$"X2000" <- NULL
 df$"X2001" <- NULL
