@@ -41,6 +41,7 @@ df$"X2017" <- NULL
 df$"X2018" <- NULL
 df$"X2019" <- NULL
 
+
 columns_to_modify <- c("Happiness.score", "Whisker.high", "Whisker.low", "Dystopia..1.83....residual",
                        "Explained.by..GDP.per.capita", "Explained.by..Social.support",
                        "Explained.by..Healthy.life.expectancy", "Explained.by..Freedom.to.make.life.choices",
@@ -48,4 +49,21 @@ columns_to_modify <- c("Happiness.score", "Whisker.high", "Whisker.low", "Dystop
 
 df[, columns_to_modify] <- lapply(df[, columns_to_modify], function(x) as.numeric(gsub(",", ".", x)))
 df <- na.omit(df)
+rownames(df) <- 1:nrow(df)
+
+df_sorted <- df[order(-df$Happiness.score), ]
+
+df$Ranked_Country <- df_sorted$Country
+
+df$happy_index <- df$Happiness.score[order(-df$Happiness.score)]
+max_index <- max(happy_index)
+df$scaled_happiness_effienciency <- (df$happy_index / max_index) * 100
+#new_df <- data.frame(summary(df$Happiness.score))
+#g_df <- group_by(df, Country)
+#stats_per_region <- summarise(g_df, 
+ #                          avg_poverty_percent = mean(Happiness.score),
+    #                       median_poverty_percent = median(Happiness.score))
+
+summary <- summarise(group_by(df, Country)),
+                              average_happiness <- 
 #df[] <- lapply(df, function(x) as.numeric(gsub(",", ".", x)))
