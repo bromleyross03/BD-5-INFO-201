@@ -56,8 +56,8 @@ df_sorted <- df[order(-df$Happiness.score), ]
 df$Ranked_Country <- df_sorted$Country
 
 df$happy_index <- df$Happiness.score[order(-df$Happiness.score)]
-max_index <- max(happy_index)
-df$scaled_happiness_effienciency <- (df$happy_index / max_index) * 100
+#max_index <- max(happy_index)
+#df$scaled_happiness_effienciency <- (df$happy_index / max_index) * 100
 #new_df <- data.frame(summary(df$Happiness.score))
 #g_df <- group_by(df, Country)
 #stats_per_region <- summarise(g_df, 
@@ -65,20 +65,20 @@ df$scaled_happiness_effienciency <- (df$happy_index / max_index) * 100
     #                       median_poverty_percent = median(Happiness.score))
 
 #summary <- summarise(group_by(df, Country)),
- #average_happiness <- 
-library(dplyr)
+
 
 # Summarize data
-summary <- summarize(group_by(df, Country), 
-                           AverageHappiness = mean(Happy_Index, na.rm = TRUE), 
-                           MedianHappiness = median(Happy_Index, na.rm = TRUE),
-                           SDHappiness = sd(Happy_Index, na.rm = TRUE),
-                           MinHappiness = min(Happy_Index, na.rm = TRUE),
-                           MaxHappiness = max(Happy_Index, na.rm = TRUE),
+summary_df <- summarise(group_by(df), 
+                           AverageHappiness = mean(happy_index, na.rm = TRUE), 
+                           MedianHappiness = median(happy_index, na.rm = TRUE),
+                           SDHappiness = sd(happy_index, na.rm = TRUE),
+                           MinHappiness = min(happy_index, na.rm = TRUE),
+                           MaxHappiness = max(happy_index, na.rm = TRUE),
                            AverageGDP = mean(Explained.by..GDP.per.capita, na.rm = TRUE),
                            MedianGDP = median(Explained.by..GDP.per.capita, na.rm = TRUE),
                            SDGDP = sd(Explained.by..GDP.per.capita, na.rm = TRUE),
                            MinGDP = min(Explained.by..GDP.per.capita, na.rm = TRUE),
                            MaxGDP = max(Explained.by..GDP.per.capita, na.rm = TRUE))
+
 
 #df[] <- lapply(df, function(x) as.numeric(gsub(",", ".", x)))
