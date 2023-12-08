@@ -56,6 +56,9 @@ df_sorted <- df[order(-df$Happiness.score), ]
 df$Ranked_Country <- df_sorted$Country
 
 df$happy_index <- df$Happiness.score[order(-df$Happiness.score)]
+
+df_sorted$gdp_fix <- as.numeric(df$X2022)
+
 #max_index <- max(happy_index)
 #df$scaled_happiness_effienciency <- (df$happy_index / max_index) * 100
 #new_df <- data.frame(summary(df$Happiness.score))
